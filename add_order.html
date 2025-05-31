@@ -78,9 +78,15 @@
         .form-group select {
             flex: 1;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 2.5px solid; /* 這裡加粗匡線 */
             border-radius: 5px;
             font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #5cb593;
         }
         .action-buttons {
             display: flex;
@@ -117,8 +123,8 @@
         <div class="form-container">
             <form action="#" method="POST">
                 <div class="form-group">
-                    <label for="order-date">日期：</label>
-                    <input type="date" id="order-date" name="order-date" required>
+                    <label for="order-date">物種：</label>
+                    <input type="text" id="animal_type" name="animal_type" required>
                 </div>
                 <div class="form-group">
                     <label for="variety">品種：</label>
@@ -130,12 +136,20 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="quantity">數量：</label>
-                    <input type="number" id="quantity" name="quantity" min="1" required>
+                    <label for="quantity">生日：</label>
+                    <input type="date" id="birthday" name="birthday" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="variety">性別：</label>
+                    <select id="variety" name="variety" required>
+                        <option value="" disabled selected>請選擇性別</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
                 </div>
             </form>
             <div class="action-buttons">
-                <button type="submit">確認新增訂單</button>
+                <button type="submit">確認新增紀錄</button>
                 <button type="button" onclick="window.location.href='index.html'">取消並返回</button>
             </div>
         </div>

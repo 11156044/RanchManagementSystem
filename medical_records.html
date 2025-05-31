@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新增訂單</title>
+    <title>就醫紀錄</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -78,9 +78,11 @@
         .form-group select {
             flex: 1;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 2.5px solid; /* 這裡加粗匡線 */
             border-radius: 5px;
             font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
         }
         .action-buttons {
             display: flex;
@@ -117,25 +119,32 @@
         <div class="form-container">
             <form action="#" method="POST">
                 <div class="form-group">
-                    <label for="order-date">日期：</label>
-                    <input type="date" id="order-date" name="order-date" required>
+                    <label for="order-date">動物編號：</label>
+                    <input type="text" id="animal_id" name="animal_id" required>
                 </div>
+
                 <div class="form-group">
-                    <label for="variety">品種：</label>
-                    <select id="variety" name="variety" required>
-                        <option value="" disabled selected>請選擇品種</option>
-                        <option value="品種A">品種A</option>
-                        <option value="品種B">品種B</option>
-                        <option value="品種C">品種C</option>
+                    <label for="how_get_well">病因：</label>
+                    <input type="text" id="why" name="why" min="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="variety">如何痊癒：</label>
+                    <input type="text" id="how" name="how" min="1" required>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label for="quantity">數量：</label>
-                    <input type="number" id="quantity" name="quantity" min="1" required>
+                    <label for="qet_well">痊癒：</label>
+                    <select id="well" name="well" required>
+                        <option value="" disabled selected></option>
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
                 </div>
             </form>
             <div class="action-buttons">
-                <button type="submit">確認新增紀錄</button>
+                <button type="submit">確認新增訂單</button>
                 <button type="button" onclick="window.location.href='index.html'">取消並返回</button>
             </div>
         </div>
